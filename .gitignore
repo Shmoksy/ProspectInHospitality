@@ -1,0 +1,40 @@
+using System;
+
+
+class ProspectInHospitality
+{
+    static void Main()
+    {
+        int buildersNeeded = int.Parse(Console.ReadLine());
+        int receptNeeded = int.Parse(Console.ReadLine());
+        int chambNeeded = int.Parse(Console.ReadLine());
+        int techniciansNeeded = int.Parse(Console.ReadLine());
+        int othersNeeded = int.Parse(Console.ReadLine());
+        double nikisSalary = double.Parse(Console.ReadLine());
+        double currensyUSA = double.Parse(Console.ReadLine());
+        double mySalary = double.Parse(Console.ReadLine());
+        double budget = double.Parse(Console.ReadLine());
+
+        double buildersSalary = buildersNeeded * 1500.04;
+        double receptSalary = receptNeeded * 2102.10;
+        double chambSalary = chambNeeded * 1465.46;
+        double techniciansSalary = techniciansNeeded * 2053.33;
+        double othersSalary = othersNeeded * 3010.98;
+        double nikisLv = nikisSalary * currensyUSA;
+        double amount = buildersSalary + receptSalary + chambSalary + techniciansSalary + othersSalary + nikisLv + mySalary;
+
+        if (amount <= budget)
+        {
+            double left = budget - amount;
+            Console.WriteLine("The amount is: {0:F2} lv.", amount);
+            Console.WriteLine(@"YES \ Left: {0:F2} lv.", left);
+        }
+        else
+        {
+            double need = Math.Abs(budget - amount);
+            Console.WriteLine("The amount is: {0:F2} lv.", amount);
+            Console.WriteLine(@"NO \ Need more: {0:F2} lv.", need);
+        }
+    }
+}
+
